@@ -4,7 +4,7 @@
 
 org 100h
 
-org 100H
+
 mov ax,2
 mov bx,2
 add ax,bx
