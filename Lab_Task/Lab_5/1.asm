@@ -62,9 +62,9 @@
     
     
     MOV AL, VALUE_1
-    ADD AL, VALUE_2
+    SUB AL, VALUE_2
     
-    SUB AL, 30H
+    ADD AL, 30H
     
     MOV AH, 2
     MOV DL,AL
