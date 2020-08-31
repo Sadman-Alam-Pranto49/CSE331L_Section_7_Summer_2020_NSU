@@ -2,8 +2,8 @@
 .STACK 100H
 
 .DATA
-  PROMPT_1 DB 'ENTER THE BINARY NUM: $'
-  PROMPT_2 DB 0DH, 0AH, 'GIVEN BINARY NUM IN REV ORDER: $'
+  PROMPT_1 DB 'Enter the binary value: $'
+  PROMPT_2 DB 0DH, 0AH, 'SHR by 4 bits: $'
   
  .CODE
   MAIN PROC
@@ -24,7 +24,7 @@
     CMP AL, 0DH
     JE @END 
     AND AL, 0FH 
-    SHL BL, 1
+    SHR BL, 1
     OR BL, AL
  LOOP @INPUT
     
@@ -33,7 +33,7 @@
    MOV CX, 8  
    
 @LOOP:
-  SHL AL, 1
+  SHR AL, 1
   RCR BL, 1
 LOOP @LOOP
             
@@ -45,7 +45,7 @@ MOV CX, 8
 MOV AH, 2
 
 @OUTPUT:
-  SHL BL, 1  
+  SHR BL, 1  
   
 JNC @ZERO
   MOV DL, 31H
@@ -60,8 +60,8 @@ LOOP @OUTPUT
 
   MOV AH, 4CH
   INT 21H
+  
   MAIN ENDP
 END MAIN
-
 
 
